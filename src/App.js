@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
+import { NavBar } from "./navBar.js";
 import RanDogImg from "./ranDogImg.js";
+import RanBreedImg from "./ranBreedImg.js";
 
 class App extends Component {
   constructor() {
@@ -10,13 +12,13 @@ class App extends Component {
   render() {
     return (
       <div>
-        <nav>
-          <Link to="/random">Random Dog</Link>
-        </nav>
-        <div>
+          <Route component={NavBar} />
+          <div>
           <Route exact path="/random" component={RanDogImg} />
-        </div>
+          <Route exact path="/randomBreed" component={RanBreedImg} />
+          </div>
       </div>
+
     );
   }
 }
