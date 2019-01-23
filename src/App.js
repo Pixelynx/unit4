@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 import { NavBar } from "./navBar.js";
 import RanDogImg from "./ranDogImg.js";
 import RanBreedImg from "./ranBreedImg.js";
+import './App.css';
 
 class App extends Component {
   constructor() {
