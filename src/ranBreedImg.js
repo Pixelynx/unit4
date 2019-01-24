@@ -5,27 +5,42 @@ class RanBreedImg extends Component {
   constructor() {
     super();
     this.state = {
-      ranBreed: ""
+      ranBreed: []
     }
   }
 
-  apiCall = () => {
-    let url = "https://dog.ceo/api/breeds/image/random"
+  // "https://dog.ceo/api/breed/{breed}/images/random"
+
+
+
+  componentDidMount = () => {
+    let url = "https://dog.ceo/api/breeds/list/all"
 
     axios.get(url)
     .then(res => {
-      let pic = res.data.message;
-      this.setState({ ranBreed: pic })
+      let dogs = Object.keys(res.data.message);
+      let printBreed = dogs.forEach(dog => {
+        console.log(dog)
+        return dog
+      })
+      return printBreed
+      console.log(printBreed)
+
+      this.setState({ ranBreed: printBreed })
     })
   }
 
   render() {
-    const { ranBreed } = this.state;
+    // const printBreed = this.renderDogs()
+    console.log(this.state)
+
     return(
       <>
         <div>
-          <input type="button" value="Breed" onClick={this.apiCall} />
-          <img src={ranBreed} />
+          <select>
+
+          </select>
+
         </div>
       </>
     )
