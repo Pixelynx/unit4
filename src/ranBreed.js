@@ -21,9 +21,9 @@ class RanBreedImg extends Component {
     }).catch(err => console.log(err))
   }
 
-  breedPicture = () => {
-    
-    axios.get("https://dog.ceo/api/breed/{this.state.selected}/images/random")
+  breedPicture = (breed) => {
+
+    axios.get(`https://dog.ceo/api/breed/${breed}/images/random`)
     .then(pic => {
       let breedPics = pic.data.message;
       this.setState({ breedPic: breedPics })
@@ -36,13 +36,13 @@ class RanBreedImg extends Component {
 
   handleChange = (event) => {
     this.setState({ selected: event.target.value })
-    console.log(this.breedPicture());
+    this.breedPicture(event.target.value);
   }
 
 
   renderBreeds = () => {
     let printBreed = this.state.listBreeds.map((dog, i) => {
-      return <option>{dog}</option>
+      return <option key={i}>{dog}</option>
     })
     return printBreed
   }
