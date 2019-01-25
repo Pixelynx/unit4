@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import RanDogImg from "./ranDogImg.js";
-import BreedImg from "./ranBreedImg.js";
+import ranBreedImg from "./ranBreed.js";
 
 export const NavBar = (props) => {
   return(
